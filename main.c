@@ -14,15 +14,20 @@
  **/
 int day_of_the_year(int day, int month, int year)
 {
+    // Fkt. exist_date wird aufgrufen, um zu kontrollieren, ob das Ÿbergebene Datum zulŠssig ist.
     if (exist_date(day,month,year) == 1)
     {
+        // Initialisierung der Variable numberOfDays. Hier wird spŠter das Ergebnis gespeichert.
         int numberOfDays = 0;
 
         for (int i = 1; i < month, i++)
         {
+            // Fkt. get_days_for_month wird aufgerufen. Hier werden fŸr alle vollen Monate, die Anzahl der Tage auf numberOfDays addiert.
             numberOfDays += get_days_for_month(i, year);
         }
+        // Auf numberOfDays wird der eingegebene Tag des Datums addiert
         numberOfDays += day;
+        // numberOfDays wird der main zurŸckgegeben,
         return numberOfDays;
     }
 }

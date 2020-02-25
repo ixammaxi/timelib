@@ -8,12 +8,23 @@
 #include <stdlib.h>
 
 /**
- *
+ * Fkt. berechnet fuer ein gegebenes Datum (gregorianischer Kalender) bestehend aus Tag, Monat und Jahr die Nummer des Tages.
+ * Gezaehlt wird ausgehend vom Jahresbeginn (1.Januar). Schaltjahre werden berueckschtigt.
  *
  **/
 int day_of_the_year(int day, int month, int year)
 {
+    if (exist_date(day,month,year) == 1)
+    {
+        int numberOfDays = 0;
 
+        for (int i = 1; i < month, i++)
+        {
+            numberOfDays += get_days_for_month(i, year);
+        }
+        numberOfDays += day;
+        return numberOfDays;
+    }
     return 0;
 }
 

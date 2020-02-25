@@ -25,7 +25,27 @@ int day_of_the_year(int day, int month, int year)
         numberOfDays += day;
         return numberOfDays;
     }
-    return 0;
+}
+
+/**
+* Fkt. bestimmt, ob es sich bei der Eingabe um ein zulässiges Datum handelt.
+*
+**/
+int exist_date(int day, int month, int year)
+{
+    // Nur zulässig falls ein Tag größer 0 bzw. kleiner gleich dem letzten Tag des Mnats,,
+    // der Monat einen zulässigen Wert hat (hierfür wird die Fkt. get_days_for_month aufgerufen),
+    // das Jahr zwischen 1583 und 4399 liegt.
+    if (day > 0 && day <= get_days_for_month(month,year) && year < 2400 && year > 1582 )
+    {
+        // falls erfüllt
+        return 1;
+    }
+    else
+    {
+        // falls nicht erfüllt
+        return 0;
+    }
 }
 
 int main()

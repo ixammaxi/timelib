@@ -52,6 +52,31 @@ int exist_date(int day, int month, int year)
         return 0;
     }
 }
+/**
+* Fkt. bestimmt die Anzahl der Tage jeden Monats. Falls Monat kleiner 1 bzw. größer 12 wird sozusagen ein Fehler geworfen.
+* Im Falle eines Schaltjahres wird der zweite Wert des Arrays von 28 auf 29 geändert.
+**/
+int get_days_for_month(int month, int year)
+{
+    // Falls kein zulässiger Monat return -1
+    if (month < 1 && month > 12)
+    {
+        return -1;
+    }
+    // Wenn Monat zulässig
+    else
+    {
+        // Anlegen eines Arrays, um die Anzahl der Tage jeden Monats zu hinterlegen
+        int days[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+        // Falls Schaltjahr aendere den Wert des zweiten Eintrages auf 29. Fkt. is_leapyear wird aufgerufen, um zu prüfen ob es sich um ein Schaltjahr handelt.
+        if (is_leapyear(year) == 1)
+        {
+            int days[1] = {29};
+        }
+        // Rückgabe der Tage des übergebenen Monats
+        return days[month-1];
+    }
+}
 
 int main()
 {
